@@ -1,10 +1,10 @@
 version: "3.3"
 
 services:
-  api:
-    build: ./api
-    image: api
-    container_name: api
+  my-app:
+    build: ./my-app
+    image: my-app
+    container_name: my-app
     restart: always
     networks:
       - app-network
@@ -32,7 +32,7 @@ services:
     ports:
       - 80:80
     depends_on:
-      - api
+      - my-app
       - app1
       - app2
     networks:
