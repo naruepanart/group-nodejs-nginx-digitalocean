@@ -1,0 +1,5 @@
+sample-node-app-master/api/node_modules
+sample-node-app-master/app1/node_modules
+sample-node-app-master/app2/node_modules
+sample-node-app-master/app1/package-lock.json
+sample-node-app-master/app2/package-lock.json

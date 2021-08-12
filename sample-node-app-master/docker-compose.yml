@@ -3,22 +3,38 @@ version: "3.3"
 services:
   api:
     build: ./api
-    image: sample-node-api
-    container_name: sample-node-api
-    restart: unless-stopped
+    image: api
+    container_name: api
+    restart: always
+    networks:
+      - app-network
+  app1:
+    build: ./app1
+    image: app1
+    container_name: app1
+    restart: always
+    networks:
+      - app-network
+  app2:
+    build: ./app2
+    image: app2
+    container_name: app2
+    restart: always
     networks:
       - app-network
 
   proxy:
     image: nginx:alpine
     container_name: web-proxy
-    restart: unless-stopped
+    restart: always
     volumes:
       - ./proxy/proxy.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
     depends_on:
       - api
+      - app1
+      - app2
     networks:
       - app-network
 
