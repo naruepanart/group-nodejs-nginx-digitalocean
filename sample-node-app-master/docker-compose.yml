@@ -6,6 +6,8 @@ services:
     image: my-app
     container_name: my-app
     restart: always
+    ports:
+      - 3000:80
     networks:
       - app-network
   app1:
@@ -13,6 +15,8 @@ services:
     image: app1
     container_name: app1
     restart: always
+    ports:
+      - 3001:80
     networks:
       - app-network
   app2:
@@ -20,6 +24,8 @@ services:
     image: app2
     container_name: app2
     restart: always
+    ports:
+      - 3002:80
     networks:
       - app-network
 
