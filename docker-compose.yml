@@ -6,6 +6,9 @@ services:
     image: my-app
     container_name: my-app
     restart: always
+     depends_on:
+      - app1
+      - app2
     ports:
       - 3000:80
     networks:
